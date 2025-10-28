@@ -1,0 +1,92 @@
+﻿Bài 3:
+
+
+Use Case A
+	Use Case B
+	Mối quan hệ
+	Giải thích
+	Đặt hàng
+	Kiểm tra giỏ hàng
+	include
+	Khi người dùng đặt hàng, hệ thống cần kiểm tra giỏ hàng để xác nhận sản phẩm và số lượng trước khi thanh toán.
+	Đặt hàng
+	Đề xuất hóa đơn
+	include
+	Quá trình đặt hàng bao gồm bước đề xuất hóa đơn để người dùng xem và xác nhận thông tin thanh toán.
+	Kiểm tra giỏ hàng
+	Đặt hàng
+	extend
+	Sau khi kiểm tra giỏ hàng, người dùng có thể chọn mở rộng hành động sang đặt hàng nếu muốn mua sản phẩm.
+	Xem đánh giá
+	Đặt hàng
+	association
+	Hai Use Case có liên kết logic: người dùng có thể xem đánh giá trước khi quyết định đặt hàng, nhưng không bắt buộc.
+
+
+	include: khi Use Case A luôn bao gồm hành vi của Use Case B.
+
+extend: khi Use Case B có thể được kích hoạt thêm từ Use Case A (tùy điều kiện).
+
+association: chỉ là liên kết giữa hai Use Case, không có sự phụ thuộc logic trực tiếp.
+
+
+Bài 5:
+
+
+Actor
+	Loại (Primary / Secondary)
+	Use Case phục vụ
+	Khách hàng
+	Primary
+	Đặt món ăn, Thanh toán đơn hàng, Theo dõi trạng thái giao hàng, Đánh giá nhà hàng
+	Tài xế giao hàng
+	Primary
+	Nhận đơn giao, Xác nhận giao hàng thành công, Cập nhật trạng thái đơn
+	Nhà hàng
+	Primary
+	Nhận đơn hàng, Chuẩn bị món ăn, Cập nhật tình trạng món ăn
+	Quản trị viên (Admin)
+	Secondary
+	Quản lý người dùng, Quản lý nhà hàng, Xử lý khiếu nại
+	Hệ thống thanh toán
+	Secondary
+	Xử lý giao dịch thanh toán trực tuyến, Hoàn tiền khi hủy đơn
+
+
+	Bài 6:
+Use Case: Đặt hàng
+Tên: Đặt hàng
+Actor:
+* Khách hàng (Primary actor)
+
+* Hệ thống (Secondary actor)
+
+* Nhà hàng
+
+Mục tiêu:
+Khách hàng chọn món ăn và đặt hàng thành công thông qua ứng dụng, hệ thống gửi thông tin đơn đến nhà hàng và chờ xác nhận.
+Luồng chính:
+   1. Khách hàng đăng nhập vào ứng dụng.
+
+   2. Khách hàng chọn nhà hàng muốn đặt.
+
+   3. Khách hàng chọn món ăn và thêm vào giỏ hàng.
+
+   4. Khách hàng kiểm tra giỏ hàng, chọn phương thức thanh toán.
+
+   5. Hệ thống hiển thị tổng tiền và yêu cầu xác nhận đơn hàng.
+
+   6. Khách hàng xác nhận đặt hàng.
+
+   7. Hệ thống gửi đơn hàng đến nhà hàng.
+
+   8. Nhà hàng xác nhận tiếp nhận đơn và chuẩn bị món.
+
+   9. Hệ thống thông báo cho khách hàng rằng đơn đã được xác nhận.
+
+Luồng lỗi (nếu có):
+      * (L1) Nếu món ăn đã hết hàng → Hệ thống hiển thị thông báo và yêu cầu chọn món khác.
+
+      * (L2) Nếu thanh toán thất bại → Hệ thống hiển thị lỗi và yêu cầu chọn lại phương thức thanh toán.
+
+      * (L3) Nếu nhà hàng không phản hồi → Hệ thống hiển thị thông báo “Nhà hàng tạm thời không nhận đơn”.
